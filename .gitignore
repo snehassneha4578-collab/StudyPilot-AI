@@ -1,0 +1,20 @@
+﻿# Local credentials
+.env
+.env.*
+!.env.example
+
+# Devpost Learn personal learner context
+/devpost/learner-profile.md
+
+# Generated application files
+node_modules/
+dist/
+.vitest/
+*.tsbuildinfo
+
+# Local Claude aliases point to the preserved .agents/skills tree
+.claude/
+
+# Keep timestamped safety copies in the workspace, not in public commits
+/README.md.backup-*
+/devpost/*.backup-*

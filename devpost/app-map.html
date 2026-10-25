@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>StudyPilot AI — Code Tour and App Map</title>
+  <style>
+    :root { color-scheme: light; --ink:#17203a; --muted:#526078; --line:#dce2ef; --panel:#f5f7fc; --violet:#643dd1; --teal:#087f7a; }
+    * { box-sizing:border-box; }
+    body { max-width:900px; margin:0 auto; padding:32px 20px 60px; color:var(--ink); background:#fff; font:16px/1.6 system-ui,Segoe UI,sans-serif; }
+    h1,h2,h3 { line-height:1.2; } h1 { margin-bottom:4px; font-size:clamp(2rem,5vw,3rem); } h2 { margin-top:34px; font-size:1.4rem; }
+    p,li { max-width:75ch; } a { color:#4930a7; text-underline-offset:3px; } a:focus-visible,summary:focus-visible { outline:3px solid #2869d8; outline-offset:3px; border-radius:3px; }
+    .lead,.note { color:var(--muted); } .panel { margin:18px 0; padding:18px; border:1px solid var(--line); border-radius:16px; background:var(--panel); }
+    code { padding:2px 5px; border-radius:5px; background:#eceffd; overflow-wrap:anywhere; } .flow { width:100%; height:auto; }
+    .stops { display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); } .stop { padding:14px; border-left:4px solid var(--violet); background:var(--panel); border-radius:8px; }
+    .stop:nth-child(2) { border-color:var(--teal); } .stop:nth-child(3) { border-color:#db705e; }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto !important; animation-duration:.01ms !important; transition-duration:.01ms !important; } }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="lead">Code Tour and App Map · StudyPilot AI</p>
+    <h1>From study details to a saved plan</h1>
+    <p>StudyPilot AI is a client-side study planner. Its deterministic scheduler creates a complete timetable from subjects, topic difficulty, exam dates, and daily study hours. React views show the schedule and real progress; browser localStorage restores it after refresh.</p>
+    <p class="note"><strong>Reference route:</strong> this is a code map for navigating the implementation, not a claim that a guided editor tour was completed. Source snapshot: current local workspace; no Git commit exists.</p>
+  </header>
+
+  <section aria-labelledby="flow-title">
+    <h2 id="flow-title">One action through the app</h2>
+    <div class="panel">
+      <svg class="flow" viewBox="0 0 820 190" role="img" aria-labelledby="flow-name flow-description">
+        <title id="flow-name">Study plan generation and persistence flow</title>
+        <desc id="flow-description">The setup form passes entered subjects and hours to the deterministic planner. The app displays the result and saves it in local storage. On refresh the provider restores the plan and dashboard statistics are derived from its sessions.</desc>
+        <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#68738b"/></marker></defs>
+        <g font-family="system-ui,sans-serif" text-anchor="middle">
+          <rect x="15" y="45" width="175" height="90" rx="16" fill="#eee8ff" stroke="#643dd1"/><text x="102" y="79" fill="#17203a" font-size="15" font-weight="700">PlanSetupForm</text><text x="102" y="105" fill="#526078" font-size="12">subjects · dates · hours</text>
+          <path d="M195 90 H235" stroke="#68738b" stroke-width="2" marker-end="url(#arrow)"/>
+          <rect x="245" y="45" width="175" height="90" rx="16" fill="#e5f7f5" stroke="#087f7a"/><text x="332" y="79" fill="#17203a" font-size="15" font-weight="700">planner.ts</text><text x="332" y="105" fill="#526078" font-size="12">validate · schedule · revise</text>
+          <path d="M425 90 H465" stroke="#68738b" stroke-width="2" marker-end="url(#arrow)"/>
+          <rect x="475" y="45" width="145" height="90" rx="16" fill="#edf2ff" stroke="#4269cf"/><text x="547" y="79" fill="#17203a" font-size="15" font-weight="700">React views</text><text x="547" y="105" fill="#526078" font-size="12">plan · progress</text>
+          <path d="M625 90 H665" stroke="#68738b" stroke-width="2" marker-end="url(#arrow)"/>
+          <rect x="675" y="45" width="130" height="90" rx="16" fill="#fff0ea" stroke="#db705e"/><text x="740" y="79" fill="#17203a" font-size="14" font-weight="700">localStorage</text><text x="740" y="105" fill="#526078" font-size="12">restore on refresh</text>
+          <text x="740" y="165" fill="#526078" font-size="11">StudyPlanProvider + storage.ts</text>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <section aria-labelledby="route-title">
+    <h2 id="route-title">Three-stop reference route</h2>
+    <div class="stops">
+      <article class="stop"><h3>1. Capture input</h3><p><a href="../src/components/PlanSetupForm.tsx"><code>src/components/PlanSetupForm.tsx</code></a> — find <code>handleGenerate</code>. It takes one browser-local date snapshot, validates the current form values, then asks for a schedule.</p></article>
+      <article class="stop"><h3>2. Enforce the rules</h3><p><a href="../src/lib/planner.ts"><code>src/lib/planner.ts</code></a> — find <code>validatePlanInput</code> and <code>generateSchedule</code>. Pure functions check date/workload feasibility and build sessions before each exam, or return a conflict instead of a partial plan.</p></article>
+      <article class="stop"><h3>3. Save and reflect</h3><p><a href="../src/context/StudyPlanProvider.tsx"><code>src/context/StudyPlanProvider.tsx</code></a> connects actions to <a href="../src/lib/storage.ts"><code>storage.ts</code></a>; <a href="../src/lib/stats.ts"><code>stats.ts</code></a> derives displayed analytics from sessions.</p></article>
+    </div>
+  </section>
+
+  <section aria-labelledby="change-title">
+    <h2 id="change-title">To change this, start here</h2>
+    <ul>
+      <li>Study duration estimates or scheduling rules: <code>src/lib/planner.ts</code> and the <code>SchedulingPolicy</code> type in <code>src/types/study.ts</code>.</li>
+      <li>Subject/topic form fields: <code>src/components/PlanSetupForm.tsx</code>.</li>
+      <li>Progress calculations: <code>src/lib/stats.ts</code>; presentation: <code>src/components/ProgressInsights.tsx</code>.</li>
+      <li>Saved-data format and recovery messages: <code>src/lib/storage.ts</code>.</li>
+    </ul>
+  </section>
+
+  <section class="panel" aria-labelledby="practice-title">
+    <h2 id="practice-title">A practice to reuse</h2>
+    <p>The exam-date issue showed why date validation and scheduling should use the same date snapshot. The form now captures one local calendar date per submission; regression tests cover today, tomorrow, past, and malformed dates in <code>src/lib/planner.test.ts</code>. On another project, turn a date boundary into an explicit example and test the boundary before changing validation rules.</p>
+  </section>
+
+  <footer class="note">
+    <p><strong>Run again (PowerShell):</strong> <code>npm.cmd ci</code>, then <code>npm.cmd run dev</code>. Run checks with <code>npm.cmd run test</code> and <code>npm.cmd run build</code>.</p>
+    <p>This offline-friendly map describes the current source snapshot and may drift as code changes. No API or external service is involved in planning.</p>
+  </footer>
+</body>
+</html>
