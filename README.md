@@ -10,10 +10,20 @@
     <img alt="Vitest 5.0.5" src="https://img.shields.io/badge/Vitest-5.0.5-6e9f18?style=for-the-badge&logo=vitest&logoColor=white">
   </p>
   <img src="public/images/studypilot-hero.png" alt="Concept artwork showing a colorful study timetable, subject cards, and progress indicators" width="920">
-  <p><em>Hero concept artwork, not a screenshot of the current application.</em></p>
 </div>
 
-StudyPilot is a browser-based planner for college students preparing for semester and competitive exams. It turns the information you enter into a structured timetable you can review, complete, and adjust.
+## 🎓 StudyPilot AI
+
+- **Purpose:** Helps college students organize semester and competitive exam preparation.
+- **Smart Study Planning:** Generates a structured timetable from subjects, topics, exam dates, difficulty levels, and daily study availability.
+- **Timetable Management:** View sessions by day, mark tasks complete, and reschedule unfinished sessions.
+- **Progress Tracking:** Monitor plan completion, study streaks, and estimated workload.
+- **Subject Management:** Organize topics with estimated study durations and revision sessions.
+- **Personalized Availability:** Adjust daily study hours to fit your schedule.
+- **Technology:** React, TypeScript, Vite, and browser local storage.
+- **Planning Engine:** Deterministic scheduling; no external AI model or AI API is used.
+- **Privacy:** Study-plan data is saved locally on the device.
+
 ### 🚀 Live Dashboard
 
 **[Open StudyPilot AI Dashboard](https://studypilot-ai-delta.vercel.app)** — Try the live application.
