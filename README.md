@@ -1,4 +1,4 @@
-﻿<div align="center">
+<div align="center">
   <h1>StudyPilot AI</h1>
   <p><strong>Turn exam prep into a plan you can follow.</strong></p>
   <p>Build a practical timetable from your subjects, topics, exam dates, and available study time.</p>
@@ -11,6 +11,8 @@
   </p>
   <img src="public/images/studypilot-hero.png" alt="Concept artwork showing a colorful study timetable, subject cards, and progress indicators" width="920">
 </div>
+
+**StudyPilot AI** is a student-focused study planning dashboard designed to simplify semester preparation and competitive exam study. It helps students organize subjects and topics, generate structured study timetables based on exam dates, difficulty levels, and daily availability, manage revision sessions, reschedule unfinished tasks, and track study progress and streaks. Built with React, TypeScript, and Vite, it uses a deterministic scheduling engine and browser local storage to provide a practical, privacy-friendly study management experience without relying on external AI APIs.
 
 ## 🎓 StudyPilot AI
 
