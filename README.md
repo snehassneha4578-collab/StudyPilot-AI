@@ -18,6 +18,20 @@ StudyPilot is a browser-based planner for college students preparing for semeste
 
 **[Open StudyPilot AI Dashboard](https://studypilot-ai-delta.vercel.app)** — Try the live application.
 
+## ✅ Verified Features
+
+The following features were exercised in the deployed dashboard:
+
+- **Study timetable:** View scheduled study sessions by day.
+- **Session completion:** Mark a study session complete and see progress update.
+- **Rescheduling:** Move an eligible unfinished session to a suggested available slot.
+- **Subject details:** Review topics, difficulty levels, and estimated durations.
+- **Progress & Insights:** View plan completion, study streak, and scheduled workload.
+- **Daily availability:** Update the daily study-time limit through Settings.
+- **Local persistence:** The app indicates that your plan is saved on your device.
+
+> **Planning approach:** StudyPilot uses deterministic scheduling based on user inputs. It does not call an AI model or external AI API.
+
 
 > **Planning is deterministic:** the app calculates a schedule from your inputs. It does not call an AI model or external API.
 
