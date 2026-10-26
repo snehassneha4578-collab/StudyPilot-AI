@@ -14,6 +14,10 @@
 </div>
 
 StudyPilot is a browser-based planner for college students preparing for semester and competitive exams. It turns the information you enter into a structured timetable you can review, complete, and adjust.
+### 🚀 Live Dashboard
+
+**[Open StudyPilot AI Dashboard](https://studypilot-ai-delta.vercel.app)** — Try the live application.
+
 
 > **Planning is deterministic:** the app calculates a schedule from your inputs. It does not call an AI model or external API.
 
