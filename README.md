@@ -45,7 +45,6 @@ The following features were exercised in the deployed dashboard:
 > **Planning approach:** StudyPilot uses deterministic scheduling based on user inputs. It does not call an AI model or external AI API.
 
 
-> **Planning is deterministic:** the app calculates a schedule from your inputs. It does not call an AI model or external API.
 
 ## Plan around your studies
 
@@ -146,7 +145,7 @@ agent/skills/   Skill Pack copy
 - Study durations and suggested times are estimates. StudyPilot is not a live AI service and does not provide personalized advice.
 - The artwork in this README is illustrative and does not depict the current application screens or real user data.
 - Narrow-screen layout, keyboard-only interaction, reduced-motion behavior, and refresh persistence still need hands-on browser verification.
-- No hosted demo URL is configured in this workspace. Run the app locally using the instructions above.
+- The hosted dashboard is available at https://studypilot-ai-delta.vercel.app. For local development, follow the instructions above.
 
 ## Contributing
 
